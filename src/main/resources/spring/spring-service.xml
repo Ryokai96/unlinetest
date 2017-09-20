@@ -1,0 +1,19 @@
+<beans xmlns="https://www.springframework.org/schema/beans" xmlns:context="https://www.springframework.org/schema/context" xmlns:tx="https://www.springframework.org/schema/tx" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation="https://www.springframework.org/schema/beans
+    https://www.springframework.org/schema/beans/spring-beans.xsd
+    https://www.springframework.org/schema/context
+    https://www.springframework.org/schema/context/spring-context.xsd
+    https://www.springframework.org/schema/tx
+    https://www.springframework.org/schema/tx/spring-tx.xsd">
+	
+	<context:component-scan base-package="com.ryoukai.unlinetest.service"/>
+	
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<!-- 注入数据库连接池 -->
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<!-- 配置基于注解的声明式事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+</beans>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test>
+	<question>
+		<no>1</no>
+		<solution>ABC</solution>
+		<thinking>
+			A. DNS（Domain Name System，域名系统），因特网上作为域名和IP地址相互映射的一个分布式数据库，能够使用户更方便的访问互联网，而不用去记住能够被机器直接读取的IP数串。
+BC.DNS协议运行在UDP协议之上，使用端口号53。
+D. 浏览器：chrome对每个域名会默认缓存60s，IE将DNS缓存30min，Firefox对DNS缓存功能，但是默认缓存时间只有1分钟，safari约为10s。
+windows DNS缓存的默认值是MaxCacheTTL，它的默认值是86400s，也就是一天。
+浏览器DNS缓存的时间跟ttl值无关，每种浏览器都使用一个固定值。
+		</thinking>
+	</question>
+</test>

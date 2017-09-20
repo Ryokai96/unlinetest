@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test>
+	<!-- 试卷类型 -->
+	<testType>C++</testType>
+	<!-- 试卷描述 -->
+	<testDesc>2016年腾讯校招笔试题(研发岗)</testDesc>
+	<!-- id表示试题编号 -->
+	<question>
+		<!-- 试题编号 -->
+		<no>1</no>
+		<!-- 试题类型 -->
+		<questionType>MC</questionType>
+		<!-- 问题内容 -->
+		<questionContent>下面关于DNS说法正确的是（）</questionContent>
+		<!-- 试题选项(若为单选题、多选题则有此项) -->
+		<options>
+			<option>
+				<!-- 选项编号 -->
+				<no>A</no>
+				<!-- 选项内容 -->
+				<content>DNS的作用是域名和IP地址的相互映射</content>
+			</option>
+			<option>
+				<no>B</no>
+				<content>DNS协议运行在UDP协议之上</content>
+			</option>
+			<option>
+				<no>C</no>
+				<content>DNS协议端口号为53</content>
+			</option>
+			<option>
+				<no>D</no>
+				<content>DNS的默认缓存时间为1小时</content>
+			</option>
+		</options>
+	</question>
+	
+</test>

@@ -1,0 +1,47 @@
+<beans xmlns="https://www.springframework.org/schema/beans" xmlns:context="https://www.springframework.org/schema/context" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation="https://www.springframework.org/schema/beans
+    https://www.springframework.org/schema/beans/spring-beans.xsd
+    https://www.springframework.org/schema/context
+    https://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- 加载jdbc.properties -->
+  	<context:property-placeholder location="classpath:jdbc.properties"/>
+  	
+  	<!-- 配置数据源，使用c3p0连接池 -->
+  	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+  		<property name="driverClass" value="${jdbc.driver}"/>
+  		<property name="jdbcUrl" value="${jdbc.url}"/>
+  		<property name="user" value="${jdbc.username}"/>
+  		<property name="password" value="${jdbc.password}"/>
+  		
+  		<!-- c3p0私有属性 -->
+  		<property name="maxPoolSize" value="${c3p0.maxPoolSize}"/>
+  		<property name="minPoolSize" value="${c3p0.minPoolSize}"/>
+  		<!-- 关闭连接后是否自动commit -->
+  		<property name="autoCommitOnClose" value="${c3p0.autoCommitOnClose}"/>
+  		<!-- 获取连接超时时间 -->
+  		<property name="checkoutTimeout" value="${c3p0.checkoutTimeout}"/>
+  		<!-- 当获取连接失败重试次数 -->
+  		<property name="acquireRetryAttempts" value="${c3p0.acquireRetryAttempts}"/>
+  	</bean>
+  	
+  	<!-- 配置sqlSessionFactory -->
+  	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactory">
+  		<!-- 注入数据库连接池 -->
+  		<property name="dataSource" ref="dataSource"/>
+  		<!-- 加载MyBatis全局配置文件 -->
+  		<property name="configLocation" value="classpath:mybatis-config.xml"/>
+  		<!-- 扫描entity包，使用别名 -->
+  		<property name="typeAliasesPackage" value="com.ryoukai.unlinetest.entity"/>
+  		<!-- 扫描sql配置文件:mapper需要的xml文件 -->
+  		<property name="mapperLocations" value="classpath:mapper/*.xml"/>
+  	</bean>
+  	
+  	<!-- 配置扫描dao接口包，动态实现dao接口，注入到Spring容器中 -->
+  	<bean>
+  		<!-- 注入sqlSessionFactory -->
+  		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+  		<!-- 给出需要扫描的Dao接口包 -->
+  		<property name="basePackage" value="com.ryoukai.unlinetest.dao"/>
+  	</bean>
+    
+</beans>
