@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ryoukai.unlinetest.dao.UserDao">
+	
+	<!-- 通过userId查找User -->
+	<select id="selectUserById" parameterType="java.lang.String" resultType="com.ryoukai.unlinetest.entity.User">
+		select 
+			user_id,username,password,email,code,state,user_type
+		from
+			user
+		where
+			user_id = #{userId}
+	</select>
+	
+	<!-- 添加用户 -->
+	<insert id="insertUser" parameterType="com.ryoukai.unlinetest.entity.User">
+		<selectKey keyProperty="userId" order="BEFORE" resultType="java.lang.String">
+			select replace(uuid(),'-','')
+		</selectKey>
+		
+		insert into 
+			user(user_id,username,password,email,code,state,user_type)
+		values
+			(#{userId},#{username},#{password},#{email},#{code},#{state},#{userType})
+	</insert>
+	
+	<!-- 根据用户id删除用户 -->
+	<delete id="deleteUserById" parameterType="java.lang.String">
+		delete from
+			user
+		where
+			user_id = {userId}
+	</delete>
+</mapper>

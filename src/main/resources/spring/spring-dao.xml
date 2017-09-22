@@ -1,7 +1,14 @@
-<beans xmlns="https://www.springframework.org/schema/beans" xmlns:context="https://www.springframework.org/schema/context" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation="https://www.springframework.org/schema/beans
-    https://www.springframework.org/schema/beans/spring-beans.xsd
-    https://www.springframework.org/schema/context
-    https://www.springframework.org/schema/context/spring-context.xsd">
+<beans xmlns="http://www.springframework.org/schema/beans"   
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+	xmlns:context="http://www.springframework.org/schema/context"   
+	xmlns:aop="http://www.springframework.org/schema/aop"   
+	xsi:schemaLocation="  
+		http://www.springframework.org/schema/beans   
+		classpath:/org/springframework/beans/factory/xml/spring-beans-4.3.xsd   
+		http://www.springframework.org/schema/context   
+		classpath:/org/springframework/context/config/spring-context-4.3.xsd  
+		http://www.springframework.org/schema/aop   
+		classpath:/org/springframework/aop/config/spring-aop-4.3.xsd">
 	
 	<!-- 加载jdbc.properties -->
   	<context:property-placeholder location="classpath:jdbc.properties"/>
@@ -37,7 +44,7 @@
   	</bean>
   	
   	<!-- 配置扫描dao接口包，动态实现dao接口，注入到Spring容器中 -->
-  	<bean>
+  	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
   		<!-- 注入sqlSessionFactory -->
   		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
   		<!-- 给出需要扫描的Dao接口包 -->

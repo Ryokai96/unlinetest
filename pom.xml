@@ -12,7 +12,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
     
@@ -35,14 +35,19 @@
     <dependency>
     	<groupId>ch.qos.logback</groupId>
     	<artifactId>logback-classic</artifactId>
-    	<version>1.2.3</version>
+    	<version>1.1.1</version>
     </dependency>
     
     <!-- c3p0连接池 -->
     <dependency>
-    	<groupId>c3p0</groupId>
+    	<groupId>com.mchange</groupId>
     	<artifactId>c3p0</artifactId>
-    	<version>0.9.1.2</version>
+    	<version>0.9.5.2</version>
+    </dependency>
+    <dependency>
+    	<groupId>com.mchange</groupId>
+    	<artifactId>mchange-commons-java</artifactId>
+    	<version>0.2.8</version>
     </dependency>
     
     <!-- Servlet Web -->
@@ -72,7 +77,7 @@
     <dependency>
     	<groupId>org.mybatis</groupId>
     	<artifactId>mybatis</artifactId>
-    	<version>3.4.4</version>
+    	<version>3.4.5</version>
     </dependency>
     <!-- MyBatis整合Spring -->
     <dependency>
