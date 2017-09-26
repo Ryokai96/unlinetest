@@ -1,13 +1,16 @@
 package com.ryoukai.unlinetest.enums;
 
+import com.ryoukai.unlinetest.constant.UserLoginConstant;
+
 /**
  * 登录信息数据字典
  * @author Ryoukai
  *
  */
 public enum UserLoginStateEnum {
-	SUCCESS(1, "登录成功"),
-	PASSWORD_ERROR(-1, "密码错误");
+	SUCCESS(UserLoginConstant.SUCCESS, "登录成功"),
+	PASSWORD_ERROR(UserLoginConstant.PASSWORD_ERROR, "密码错误"),
+	NO_ACTIVE(UserLoginConstant.NO_ACTIVE, "用户未激活");
 	
 	private int state;
 	private String stateInfo;

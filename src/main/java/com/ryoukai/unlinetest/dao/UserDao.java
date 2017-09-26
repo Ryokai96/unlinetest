@@ -11,6 +11,13 @@ public interface UserDao {
 	User selectUserById(String userId);
 	
 	/**
+	 * 通过用户名查找User
+	 * @param username 用户名
+	 * @return 用户实例
+	 */
+	User selectUserByUsername(String username);
+	
+	/**
 	 * 添加用户
 	 * @param user 用户实例
 	 */

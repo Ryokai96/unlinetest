@@ -1,4 +1,4 @@
-package com.ryoukai.unlinetest.dto;
+package com.ryoukai.unlinetest.dto.response;
 
 import com.ryoukai.unlinetest.entity.User;
 import com.ryoukai.unlinetest.enums.UserLoginStateEnum;

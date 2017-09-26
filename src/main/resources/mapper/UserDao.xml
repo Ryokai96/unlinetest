@@ -15,6 +15,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			user_id = #{userId}
 	</select>
 	
+	<!-- 通过username查找User -->
+	<select id="selectUserByUsername" parameterType="java.lang.String" resultType="com.ryoukai.unlinetest.entity.User">
+		select
+			user_id,username,password,email,code,state,user_type
+		from
+			user
+		where
+			username = #{username}
+	</select>
+	
 	<!-- 添加用户 -->
 	<insert id="insertUser" parameterType="com.ryoukai.unlinetest.entity.User">
 		<selectKey keyProperty="userId" order="BEFORE" resultType="java.lang.String">
