@@ -1,8 +1,8 @@
 package com.ryoukai.unlinetest.service;
 
-import com.ryoukai.unlinetest.dto.response.UserRegisterInfo;
+import com.ryoukai.unlinetest.pojo.User;
 
 public interface RegisterService {
 	
-	UserRegisterInfo userRegister();
+	boolean userLogin(User user);
 }

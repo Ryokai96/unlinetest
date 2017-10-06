@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value="/register")
 public class RegisterController {
 	
-	@RequestMapping(value="/login")
+	@RequestMapping(value="/userregister")
 	public String login(HttpSession session, String username, String password) {
 		//在session里保存信息
 		session.setAttribute("username", username);

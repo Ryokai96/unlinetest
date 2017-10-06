@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ryoukai.unlinetest.mapper.AnswertestMapper" >
+  <resultMap id="BaseResultMap" type="com.ryoukai.unlinetest.pojo.Answertest" >
+    <id column="answertest_id" property="answertestId" jdbcType="INTEGER" />
+    <result column="test_id" property="testId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="CHAR" />
+    <result column="answertest_path" property="answertestPath" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    answertest_id, test_id, user_id, answertest_path, state
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ryoukai.unlinetest.pojo.AnswertestExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from answertest
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from answertest
+    where answertest_id = #{answertestId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from answertest
+    where answertest_id = #{answertestId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ryoukai.unlinetest.pojo.AnswertestExample" >
+    delete from answertest
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ryoukai.unlinetest.pojo.Answertest" >
+    insert into answertest (answertest_id, test_id, user_id, 
+      answertest_path, state)
+    values (#{answertestId,jdbcType=INTEGER}, #{testId,jdbcType=INTEGER}, #{userId,jdbcType=CHAR}, 
+      #{answertestPath,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ryoukai.unlinetest.pojo.Answertest" >
+    insert into answertest
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="answertestId != null" >
+        answertest_id,
+      </if>
+      <if test="testId != null" >
+        test_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="answertestPath != null" >
+        answertest_path,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="answertestId != null" >
+        #{answertestId,jdbcType=INTEGER},
+      </if>
+      <if test="testId != null" >
+        #{testId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=CHAR},
+      </if>
+      <if test="answertestPath != null" >
+        #{answertestPath,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ryoukai.unlinetest.pojo.AnswertestExample" resultType="java.lang.Integer" >
+    select count(*) from answertest
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update answertest
+    <set >
+      <if test="record.answertestId != null" >
+        answertest_id = #{record.answertestId,jdbcType=INTEGER},
+      </if>
+      <if test="record.testId != null" >
+        test_id = #{record.testId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=CHAR},
+      </if>
+      <if test="record.answertestPath != null" >
+        answertest_path = #{record.answertestPath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.state != null" >
+        state = #{record.state,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update answertest
+    set answertest_id = #{record.answertestId,jdbcType=INTEGER},
+      test_id = #{record.testId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=CHAR},
+      answertest_path = #{record.answertestPath,jdbcType=VARCHAR},
+      state = #{record.state,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ryoukai.unlinetest.pojo.Answertest" >
+    update answertest
+    <set >
+      <if test="testId != null" >
+        test_id = #{testId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=CHAR},
+      </if>
+      <if test="answertestPath != null" >
+        answertest_path = #{answertestPath,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+    </set>
+    where answertest_id = #{answertestId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ryoukai.unlinetest.pojo.Answertest" >
+    update answertest
+    set test_id = #{testId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=CHAR},
+      answertest_path = #{answertestPath,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER}
+    where answertest_id = #{answertestId,jdbcType=INTEGER}
+  </update>
+</mapper>

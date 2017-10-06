@@ -13,4 +13,8 @@ public interface UserLoginConstant {
 	 * 用户未激活
 	 */
 	int NO_ACTIVE = -2;
+	/**
+	 * 用户不存在
+	 */
+	int USER_NOT_EXIST = -3;
 }

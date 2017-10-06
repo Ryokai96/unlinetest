@@ -10,7 +10,8 @@ import com.ryoukai.unlinetest.constant.UserLoginConstant;
 public enum UserLoginStateEnum {
 	SUCCESS(UserLoginConstant.SUCCESS, "登录成功"),
 	PASSWORD_ERROR(UserLoginConstant.PASSWORD_ERROR, "密码错误"),
-	NO_ACTIVE(UserLoginConstant.NO_ACTIVE, "用户未激活");
+	NO_ACTIVE(UserLoginConstant.NO_ACTIVE, "用户未激活"),
+	USER_NOT_EXIST(UserLoginConstant.USER_NOT_EXIST, "用户不存在");
 	
 	private int state;
 	private String stateInfo;
