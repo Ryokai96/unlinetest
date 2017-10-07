@@ -1,4 +1,4 @@
-package com.ryoukai.unlinetest.dao;
+package com.ryoukai.unlinetest.mapper;
 
 import com.ryoukai.unlinetest.pojo.Selfsolution;
 import com.ryoukai.unlinetest.pojo.SelfsolutionExample;

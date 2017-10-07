@@ -15,4 +15,9 @@ public class PageController {
 	public String showIndex() {
 		return "index";
 	}
+	
+	@RequestMapping(value="/userloginpage")
+	public String showUserLoginPage() {
+		return "login/login";
+	}
 }

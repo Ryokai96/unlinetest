@@ -1,37 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>login</title>
-<link rel="stylesheet" type="text/css" href="resources/css/login.css">
-<script src="resources/js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript">
-    $(function(){
-        $("#logininput").click(function(){
-            var username = document.getElementBtName("username").val();
-            var password = document.getElementBtName("password").val();
-            alert(username);
-            alert(password);
-            if(username == "") {
-                alert("用户名不能为空");
-                return false;
-            } else if(password == "") {
-                alert("密码不能为空");
-                return false;
-            } else {
-                $("#logininfo").submit();
-            }
-        });
-    });
-</script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/login.css">
+<script src="${pageContext.request.contextPath}/resources/js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 	<div id="loginbox">
         <div id="systemtitle">
             Ryoukai在线题库
         </div>
-        <form id="logininfo" action="${pageContext.request.contextPath }/login/userlogin" method="post">
+        <form id="logininfo" method="post">
             <table id="infobox">
                 <tr class="info">
                     <td class="handle">用户名</td>
@@ -71,4 +52,32 @@
         </form>
     </div>
 </body>
+<script type="text/javascript">
+	$(function(){
+	    $("#logininput").click(function(){
+	        var username = $("input[name='username']").val();
+	        var password = $("input[name='password']").val();
+	        if(username == "") {
+	            alert("用户名不能为空");
+	            return false;
+	        } else if(password == "") {
+	            alert("密码不能为空");
+	            return false;
+	        } else {
+	        	$.ajax({
+	        		type:'post',
+	        		url:'${pageContext.request.contextPath}/login/userlogin',
+	        		data:'username='+username+'&password='+password,
+	        		success:function(data){
+	        			alert(data.loginStateInfo);
+		        		if(data.loginState == 1) {
+		        			window.location.href="${pageContext.request.contextPath}/";
+		        		}
+	        		}
+	        	});
+	            //$("#logininfo").submit();
+	        }
+	    });
+	});
+</script>
 </html>

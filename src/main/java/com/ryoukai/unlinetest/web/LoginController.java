@@ -5,10 +5,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ryoukai.unlinetest.constant.UserLoginConstant;
 import com.ryoukai.unlinetest.dto.UserLoginInfo;
@@ -31,14 +30,17 @@ public class LoginController {
 	 * @return 首页
 	 */
 	@RequestMapping(value="/userlogin",method=RequestMethod.POST)
-	public String userLogin(User user, HttpSession session, Model model) {
+	public @ResponseBody UserLoginInfo userLogin(User user, HttpSession session, Model model) {
 		UserLoginInfo userLoginInfo = loginService.userLogin(user);
 		if(userLoginInfo.getLoginState() == UserLoginConstant.SUCCESS) {
+			session.setAttribute("username", userLoginInfo.getUser().getUsername());
 			session.setAttribute("userLoginInfo", userLoginInfo);
+//			return "redirect:/";
 		}
-		else {
-			model.addAttribute("message", userLoginInfo.getLoginStateInfo());
-		}
-		return "redirect:/index";
+//		else {
+//			model.addAttribute("message", userLoginInfo.getLoginStateInfo());
+//			return "forward:/userloginpage";
+//		}
+		return userLoginInfo;
 	}
 }

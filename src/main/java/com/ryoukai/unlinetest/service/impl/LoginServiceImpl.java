@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ryoukai.unlinetest.constant.UserConstant;
-import com.ryoukai.unlinetest.dao.UserMapper;
 import com.ryoukai.unlinetest.dto.UserLoginInfo;
 import com.ryoukai.unlinetest.enums.UserLoginStateEnum;
+import com.ryoukai.unlinetest.mapper.UserMapper;
 import com.ryoukai.unlinetest.pojo.User;
 import com.ryoukai.unlinetest.pojo.UserExample;
 import com.ryoukai.unlinetest.service.LoginService;
