@@ -1,5 +1,7 @@
 package com.ryoukai.unlinetest.enums;
 
+import com.ryoukai.unlinetest.constant.UserRegisterConstant;
+
 /**
  * 用户注册信息数据字典
  * @author Ryoukai
@@ -7,8 +9,8 @@ package com.ryoukai.unlinetest.enums;
  */
 public enum UserRegisterStateEnum {
 	
-	SUCCESS(1, "注册成功"),
-	USERNAME_EXIST(-1, "用户名已存在");
+	SUCCESS(UserRegisterConstant.SUCCESS, "注册成功"),
+	USERNAME_EXIST(UserRegisterConstant.USERNAME_REPEAT, "用户名已存在");
 	
 	private int state;
 	private String stateInfo;

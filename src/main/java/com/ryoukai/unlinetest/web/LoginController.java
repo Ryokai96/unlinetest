@@ -30,7 +30,8 @@ public class LoginController {
 	 * @return 首页
 	 */
 	@RequestMapping(value="/userlogin",method=RequestMethod.POST)
-	public @ResponseBody UserLoginInfo userLogin(User user, HttpSession session, Model model) {
+	@ResponseBody
+	public UserLoginInfo userLogin(User user, HttpSession session, Model model) {
 		UserLoginInfo userLoginInfo = loginService.userLogin(user);
 		if(userLoginInfo.getLoginState() == UserLoginConstant.SUCCESS) {
 			session.setAttribute("username", userLoginInfo.getUser().getUsername());

@@ -16,7 +16,7 @@ CREATE TABLE `user` (
 CREATE TABLE `test` (
   `test_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '试卷id',
   `test_desc` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '试卷描述',
-  `test_path` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '试卷路径',
+  `test_path` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '试卷路径',
   `test_type` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '试卷类型',
   `uploader_id` binary(16) NOT NULL COMMENT '试卷上传者id',
   PRIMARY KEY (`test_id`),
@@ -28,7 +28,7 @@ CREATE TABLE `test` (
 -- 答案表
 CREATE TABLE `solution` (
   `solution_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '答案id',
-  `solution_path` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '答案地址',
+  `solution_path` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '答案地址',
   `test_id` int(11) NOT NULL COMMENT '试题id',
   PRIMARY KEY (`solution_id`),
   KEY `fk_test_usertest` (`test_id`),

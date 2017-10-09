@@ -9,9 +9,9 @@ import com.ryoukai.unlinetest.pojo.User;
  *
  */
 public class UserLoginInfo {
-	private User user;
-	private int loginState;
-	private String loginStateInfo;
+	private User user;	//用户实体
+	private int loginState;	//登录结果
+	private String loginStateInfo;	//登录结果信息
 	
 	/**
 	 * 登录失败的构造器

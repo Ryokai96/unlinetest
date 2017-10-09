@@ -11,4 +11,28 @@ windows DNS缓存的默认值是MaxCacheTTL，它的默认值是86400s，也就�
 浏览器DNS缓存的时间跟ttl值无关，每种浏览器都使用一个固定值。
 		</thinking>
 	</question>
+	
+	<question>
+		<no>2</no>
+		<solution>D</solution>
+		<thinking>
+			从应用程序包括用户界面的角度来看，存取信息的最小单位是Byte（字节）；从磁盘的物理结构来看存取信息的最小单位是扇区，一个扇区是512字节；从操作系统对硬盘的存取管理来看，存取信息的最小单位是簇，簇是一个逻辑概念，一个簇可以是2、4、8、16、32或64个连续的扇区。一个簇只能被一个文件占用，哪怕是只有1个字节的文件，在磁盘上存储时也要占用一个簇，这个簇里剩下的扇区是无用的。所以，簇可以理解为磁盘存取信息的最小单位。
+		</thinking>
+	</question>
+	
+	<question>
+		<no>3</no>
+		<solution>B</solution>
+		<thinking>
+			系统开销比率 =调度耗时/时间片长度
+		</thinking>
+	</question>
+	
+	<question>
+		<no>4</no>
+		<solution>D</solution>
+		<thinking>
+			默认B类地址的子网掩码是/16，也就是255.255.0.0；切割成10个子网的话，就得向主机位借2的四次方=16＞10，即向主机位借4位；所以子网掩码要设置成/20，也就是255.255.240.0
+		</thinking>
+	</question>
 </test>

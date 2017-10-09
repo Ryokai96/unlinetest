@@ -10,5 +10,5 @@ public interface LoginService {
 	 * @param user 用户登录信息
 	 * @return 用户登陆结果信息
 	 */
-	UserLoginInfo userLogin(User user);
+	public UserLoginInfo userLogin(User user);
 }

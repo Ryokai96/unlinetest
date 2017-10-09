@@ -5,7 +5,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>login</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/login.css">
-<script src="${pageContext.request.contextPath}/resources/js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 	<div id="loginbox">
@@ -23,7 +22,7 @@
                 <tr class="info">
                     <td class="handle">密码</td>
                     <td class="data">
-                        <input name="password" class="infoinput" type="text">
+                        <input name="password" class="infoinput" type="password">
                     </td>
                 </tr>
                 <tr class="info">
@@ -35,7 +34,7 @@
                                     <input name="identifyingcode" class="infoinput" type="text">
                                 </td>
                                 <td class="identifyingimg">
-                                    <img src="" alt="">
+                                    <img src="${pageContext.request.contextPath}/resources/images/identifyingcode/1.png">
                                 </td>
                             </tr>
                         </table>
@@ -52,17 +51,25 @@
         </form>
     </div>
 </body>
+<script src="${pageContext.request.contextPath}/resources/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 	$(function(){
 	    $("#logininput").click(function(){
 	        var username = $("input[name='username']").val();
 	        var password = $("input[name='password']").val();
+	        var identifyingcode = $("input[name='identifyingcode']").val().toLowerCase();
 	        if(username == "") {
 	            alert("用户名不能为空");
 	            return false;
 	        } else if(password == "") {
 	            alert("密码不能为空");
 	            return false;
+	        } else if(identifyingcode == "") {
+	        	alert("验证码不能为空");
+	        	return false;
+	        } else if(identifyingcode != "fnpb") {
+	        	alert("验证码错误");
+	        	return false;
 	        } else {
 	        	$.ajax({
 	        		type:'post',
@@ -75,8 +82,10 @@
 		        		}
 	        		}
 	        	});
-	            //$("#logininfo").submit();
 	        }
+	    });
+	    $("#registerinput").click(function(){
+	    	window.location.href="${pageContext.request.contextPath}/userregister";
 	    });
 	});
 </script>

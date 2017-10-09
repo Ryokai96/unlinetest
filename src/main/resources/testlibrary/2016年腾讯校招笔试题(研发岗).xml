@@ -35,4 +35,93 @@
 		</options>
 	</question>
 	
+	<question>
+		<!-- 试题编号 -->
+		<no>2</no>
+		<!-- 试题类型 -->
+		<questionType>SC</questionType>
+		<!-- 问题内容 -->
+		<questionContent>文件系统管理的最小磁盘空间单位是（）</questionContent>
+		<!-- 试题选项(若为单选题、多选题则有此项) -->
+		<options>
+			<option>
+				<!-- 选项编号 -->
+				<no>A</no>
+				<!-- 选项内容 -->
+				<content>扇区</content>
+			</option>
+			<option>
+				<no>B</no>
+				<content>页面</content>
+			</option>
+			<option>
+				<no>C</no>
+				<content>簇</content>
+			</option>
+			<option>
+				<no>D</no>
+				<content>文件</content>
+			</option>
+		</options>
+	</question>
+	
+	<question>
+		<!-- 试题编号 -->
+		<no>3</no>
+		<!-- 试题类型 -->
+		<questionType>SC</questionType>
+		<!-- 问题内容 -->
+		<questionContent>假设就绪队列中有10个线程，系统将时间片设置为200ms，CPU进行线程切换要花费10ms，则系统开销所占的比例约为：</questionContent>
+		<!-- 试题选项(若为单选题、多选题则有此项) -->
+		<options>
+			<option>
+				<!-- 选项编号 -->
+				<no>A</no>
+				<!-- 选项内容 -->
+				<content>0.01</content>
+			</option>
+			<option>
+				<no>B</no>
+				<content>0.05</content>
+			</option>
+			<option>
+				<no>C</no>
+				<content>0.1</content>
+			</option>
+			<option>
+				<no>D</no>
+				<content>0.2</content>
+			</option>
+		</options>
+	</question>
+	
+	<question>
+		<!-- 试题编号 -->
+		<no>4</no>
+		<!-- 试题类型 -->
+		<questionType>SC</questionType>
+		<!-- 问题内容 -->
+		<questionContent>IP地址为140.123.0.0的地址是B类地址，若要切割为10个子网，而且都要连接上Internet，请问子网掩码应设为（）</questionContent>
+		<!-- 试题选项(若为单选题、多选题则有此项) -->
+		<options>
+			<option>
+				<!-- 选项编号 -->
+				<no>A</no>
+				<!-- 选项内容 -->
+				<content>255.0.0.0</content>
+			</option>
+			<option>
+				<no>B</no>
+				<content>255.255.0.0</content>
+			</option>
+			<option>
+				<no>C</no>
+				<content>255.255.128.0</content>
+			</option>
+			<option>
+				<no>D</no>
+				<content>255.255.240.0</content>
+			</option>
+		</options>
+	</question>
 </test>

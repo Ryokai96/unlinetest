@@ -1,0 +1,56 @@
+@CHARSET "UTF-8";
+form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 700px;
+    height: 500px;
+    margin-left: -350px;
+    margin-top: -250px;
+    border-radius: 20px;
+    border-style: outset;
+}
+
+#infobox {
+    width: 300px;
+    height: 300px;
+    margin: 50px auto;
+}
+
+.userinfotr {
+    font-family: "微软雅黑";
+}
+
+.userinfotr input {
+    border-radius: 5px;
+    outline: none;
+    padding-left: 3px;
+}
+
+.userinfotr .handler {
+    width: 30%;
+}
+
+.userinfotr .data {
+    width: 50%;
+}
+
+.userinfotr .data .identifyingcode input {
+    width: 100px;
+}
+
+.userinfotr .data .identifyingimg img {
+    width: 65px;
+}
+
+#bottomdiv {
+    text-align: center;
+}
+
+#bottomdiv input {
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    outline: none;
+}

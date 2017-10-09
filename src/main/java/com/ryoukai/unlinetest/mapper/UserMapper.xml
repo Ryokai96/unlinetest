@@ -102,11 +102,14 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.ryoukai.unlinetest.pojo.User" >
+  	<selectKey keyProperty="userId" order="BEFORE" resultType="java.lang.String">
+  		SELECT REPLACE(UUID(), '-', '')
+  	</selectKey>
     insert into user (user_id, username, password, 
       email, code, state, 
       user_type)
     values (#{userId,jdbcType=CHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{email,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, 
+      #{email,jdbcType=VARCHAR}, REPLACE(UUID(), '-', ''), #{state,jdbcType=INTEGER}, 
       #{userType,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.ryoukai.unlinetest.pojo.User" >
